@@ -15,5 +15,5 @@ class SanyaKovalchuk:
 
 # Створюємо екземпляр класу і перевіряємо методи
 bohdan = SanyaKovalchuk()
-print(bohdan.calculate_course())  # Виведе "Курс відповідно до року народження: 17 років"
-print(bohdan.create_name_list())  # Виведе ["Богдан", "Новосад"]
+print(sanya.calculate_course())  # Виведе "Курс відповідно до року народження: 17 років"
+print(sanya.create_name_list())  # Виведе ["Саня", "Ковальчук"]
