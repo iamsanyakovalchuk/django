@@ -1,6 +1,6 @@
-from lab1 import pruverka
+from lab1 import SanyaKovalchuk
 
-class Student(pruverka):
+class SanyaKovalchuk:
     def __init__(self, first_name=None, last_name=None, birth_year=None, 
                  average_grade=None, specialty=None, group=None):
         super().__init__(first_name, last_name, birth_year)
