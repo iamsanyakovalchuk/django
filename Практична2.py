@@ -14,7 +14,7 @@ class SanyaKovalchuk:
 
 
 class Onl_SanyaKovalchuk(SanyaKovalchuk):
-    def init(self, name=None, surname=None, birth_year=None, course=None, online_platform=None, in_ukraine=None, device_used=None):
+    def __init__(self, name=None, surname=None, birth_year=None, course=None, online_platform=None, in_ukraine=None, device_used=None):
         super().init(name, surname, birth_year, course)
         self.online_platform = online_platform
         self.in_ukraine = in_ukraine
