@@ -1,5 +1,5 @@
 class SanyaKovalchuk:
-    def init(self, name=None, surname=None, birth_year=None, course=None):
+    def __init__(self, name=None, surname=None, birth_year=None, course=None):
         self.name = name
         self.surname = surname
         self.birth_year = birth_year
