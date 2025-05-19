@@ -1,40 +1,50 @@
-from lab1 import SanyaKovalchuk
-
 class SanyaKovalchuk:
-    def __init__(self, first_name=None, last_name=None, birth_year=None, 
-                 average_grade=None, specialty=None, group=None):
-        super().__init__(first_name, last_name, birth_year)
-        self.average_grade = average_grade
-        self.specialty = specialty
-        self.group = group
+    def init(self, name=None, surname=None, birth_year=None, course=None):
+        self.name = name
+        self.surname = surname
+        self.birth_year = birth_year
+        self.course = course
 
-    def _calculate_scholarship(self):
-        """Захищений метод для розрахунку стипендії"""
-        if self.average_grade is None:
-            return 0
-        if self.average_grade >= 4.5:
-            return 2000
-        elif self.average_grade >= 4.0:
-            return 1500
-        return 0
+    def get_info(self):
+        course_info = self.course if isinstance(self.course, int) and self.course < 5 else "Випускник або невідомо"
+        return f"Ім'я: {self.name} {self.surname}, Рік народження: {self.birth_year}, Курс: {course_info}"
 
-    def __check_attendance(self):
-        """Приватний метод для перевірки відвідуваності"""
-        if self.group is None:
-            return "Невідома група"
-        return f"Студент групи {self.group}"
+    def get_names_list(self, students):
+        return [f"{student.name} {student.surname}" for student in students]
 
-    def get_student_info(self):
-        """Публічний метод для отримання інформації про студента"""
-        scholarship = self._calculate_scholarship()
-        attendance = self.__check_attendance()
-        return {
-            "Ім'я": self.first_name,
-            "Прізвище": self.last_name,
-            "Курс": self.calculate_course(),
-            "Середній бал": self.average_grade,
-            "Спеціальність": self.specialty,
-            "Група": self.group,
-            "Стипендія": scholarship,
-            "Статус відвідування": attendance
-        } 
+
+class Onl_Denis(Denis):
+    def init(self, name=None, surname=None, birth_year=None, course=None, online_platform=None, in_ukraine=None, device_used=None):
+        super().init(name, surname, birth_year, course)
+        self.online_platform = online_platform
+        self.in_ukraine = in_ukraine
+        self.device_used = device_used
+
+    def _get_platform_info(self):
+        return f"Online platform: {self.online_platform}"
+
+    def __device_info(self):
+        return f"Device used: {self.device_used}"
+
+    def get_info(self):
+        basic_info = super().get_info()
+        platform_info = f", Платформа: {self.online_platform}"
+        location_info = f", За кордоном: {'Так' if not self.in_ukraine else 'Ні'}"
+        return basic_info + platform_info + location_info
+
+Student1 = Denis("Денис", "Швайковський", 2008)
+Student2 = Denis("Данила", None, 2000)
+Student3 = Denis("Віталік", "Спарта", 2007, 2)
+
+Student4 = Onl_Denis("Давид", "Снейк", 2005, 3, "Zoom", False, "ПК")
+Student5 = Onl_Denis("Джек", "Рипек", 2008, 3, "Google Meet", True, "Ноутбук")
+
+Students = [Student1, Student2, Student3, Student4, Student5]
+Names_list = Student1.get_names_list(Students)
+
+print(Names_list)
+print(Student1.get_info())
+print(Student2.get_info())
+print(Student3.get_info())
+print(Student4.get_info())
+print(Student5.get_info())\
