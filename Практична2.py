@@ -13,7 +13,7 @@ class SanyaKovalchuk:
         return [f"{student.name} {student.surname}" for student in students]
 
 
-class Onl_Denis(Denis):
+class Onl_SanyaKovalchuk(SanyaKovalchuk):
     def init(self, name=None, surname=None, birth_year=None, course=None, online_platform=None, in_ukraine=None, device_used=None):
         super().init(name, surname, birth_year, course)
         self.online_platform = online_platform
@@ -32,12 +32,12 @@ class Onl_Denis(Denis):
         location_info = f", За кордоном: {'Так' if not self.in_ukraine else 'Ні'}"
         return basic_info + platform_info + location_info
 
-Student1 = Denis("Денис", "Швайковський", 2008)
-Student2 = Denis("Данила", None, 2000)
-Student3 = Denis("Віталік", "Спарта", 2007, 2)
+Student1 = SanyaKovalchuk("Саня", "Ковальчук", 2008)
+Student2 = SanyaKovalchuk("Ахмед", None, 2000)
+Student3 = SanyaKovalchuk("Форза", "Мілан", 2007, 2)
 
-Student4 = Onl_Denis("Давид", "Снейк", 2005, 3, "Zoom", False, "ПК")
-Student5 = Onl_Denis("Джек", "Рипек", 2008, 3, "Google Meet", True, "Ноутбук")
+Student4 = Onl_SanyaKovalchuk("Мадрид", "Реал", 2005, 3, "Zoom", False, "ПК")
+Student5 = Onl_SanyaKovalchuk("Не", "Придумав", 2008, 3, "Google Meet", True, "Ноутбук")
 
 Students = [Student1, Student2, Student3, Student4, Student5]
 Names_list = Student1.get_names_list(Students)
